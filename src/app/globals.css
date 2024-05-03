@@ -2,32 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer components{
+  table{
+    @apply table-fixed border-x-2 border-t-2 w-[98%] m-4 text-left
+  }
+  th, input{
+    @apply font-medium border-b-2 p-3
+  }
+  input{
+    @apply w-full outline-none
+  }
+  input:focus{
+    @apply border-b-2 border-blue-500
+  }
+  tr > td > div{
+    @apply flex flex-col
+  } 
+  th > div{
+    @apply flex items-center gap-2
+  }
+  div > svg{
+    @apply invisible
+  }
+  th:hover{
+    @apply bg-gray-100 cursor-pointer
+  }
+  tr:hover svg{
+    @apply visible
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.input-error{
+  @apply bg-red-400
+}
+.input-modified{
+  @apply bg-green-300 border-none
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.action-container{
+  @apply w-[98%] mx-auto flex justify-end gap-4
 }

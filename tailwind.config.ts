@@ -16,5 +16,6 @@ const config: Config = {
     },
   },
   plugins: [],
+    layers: ['components', 'utilities'],
 };
 export default config;
